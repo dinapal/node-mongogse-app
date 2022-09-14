@@ -1,0 +1,66 @@
+<%- include('./partials/header.ejs') %> 
+<style>
+  .is-hidden{
+    display:none;
+    transition: all .5s ease-in-out;
+  }
+  #edit-form{
+    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+</style>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Hello, <%= user[0].name %> </h1>
+            <hr class="my-4">
+            <h3>Here is your Information</h3>
+            <div class="information">
+              <p><b>Name:</b> <%= user[0].name %> </p>
+              <p><b>Email:</b><%= user[0].email %> </p>
+            </div>
+            <div id="edit-form" class="card is-hidden mb-5 p-3" style="width: 450px;">
+              <div class="editor-form">
+                <h2>Edit <%= user[0].name %> info</h2>
+                <form action="/update-user" method="post" id="update">
+                  <input type="hidden" name="userId" value="<%=user[0]._id%>" >
+                  <div class="mb-3">
+                   <input type="text" class="form-control"name="name"  value="<%= user[0].name %>" >
+                  </div>
+                  <div class="mb-3">
+                    <input type="email" name="email" class="form-control" value="<%= user[0].email %>" >
+                  </div>
+                  <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+              </div>
+            </div>
+            <p class="lead">
+              <a class="btn btn-primary btn-lg editbtn" id="editBtn" href="#" role="button">Edit Your Details</a>
+            </p>
+          </div>
+
+    </div>
+<%- include("./partials/footer.ejs") %> 
+
+<script>
+  const editBtn = document.getElementById('editBtn');
+  const editForm = document.querySelector('#edit-form');
+
+  editBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    editForm.classList.toggle('is-hidden');
+    editBtn.classList.toggle('editbtn')
+    if(!editBtn.classList.contains('editbtn')) {
+      editBtn.innerText = 'Cancel Edit!'
+      editBtn.classList.remove('btn-primary');
+      editBtn.classList.add('btn-danger');
+  }else{
+    editBtn.innerText = 'Edit Your Details';
+    editBtn.classList.remove('btn-danger');
+    editBtn.classList.add('btn-primary');
+  }
+    
+  })
+  
+  
+
+</script>
+
