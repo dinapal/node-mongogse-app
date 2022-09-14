@@ -1,4 +1,4 @@
-# Simple Nodejs, Mongoose, Express CRUD App 👏👏👏👏
+# Simple Nodejs, Mongoose, Express CRUD App 👏👏
 
 This is a simple NodeJS, Mongoose, Express CRUD App, 
 ### features that we implement
@@ -17,9 +17,9 @@ This is a simple NodeJS, Mongoose, Express CRUD App,
 
 ## Screenshots
 
-[All Users](./images/img1.png)
-[Update User](./images/img2.png)
-[Register User](./images/img3.png)
+![All Users](./images/img1.png)
+![Update User](./images/img2.png)
+![Register User](./images/img3.png)
 
 # Thank you 🙏🙏🙏🙏
 
